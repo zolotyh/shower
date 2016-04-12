@@ -22,8 +22,8 @@ gulp.task('prepare', () => {
 			'!package.json'
 		])
 		.pipe(replace(
-			/(<link rel="stylesheet" href=")(node_modules\/shower-ribbon\/)(styles\/screen-16x10.css">)/g,
-			'$1shower/themes/ribbon/$3', { skipBinary: true }
+			/(<link rel="stylesheet" href=")(node_modules\/shower-wrike\/)(styles\/screen-16x10.css">)/g,
+			'$1shower/themes/wrike/$3', { skipBinary: true }
 		))
 		.pipe(replace(
 			/(<script src=")(node_modules\/shower-core\/)(shower.min.js"><\/script>)/g,
@@ -48,16 +48,16 @@ gulp.task('prepare', () => {
 			path.dirname = 'shower/themes/material/' + path.dirname;
 		}))
 
-	const ribbon = gulp.src([
+	const wrike = gulp.src([
 			'**', '!package.json'
 		], {
-			cwd: 'node_modules/shower-ribbon'
+			cwd: 'node_modules/shower-wrike'
 		})
 		.pipe(rename( (path) => {
-			path.dirname = 'shower/themes/ribbon/' + path.dirname;
+			path.dirname = 'shower/themes/wrike/' + path.dirname;
 		}));
 
-	const themes = merge(material, ribbon)
+	const themes = merge(material, wrike)
 		.pipe(replace(
 			/(<script src=")(\/shower-core\/)(shower.min.js"><\/script>)/,
 			'$1../../$3', { skipBinary: true }
