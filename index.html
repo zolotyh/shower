@@ -29,7 +29,17 @@
 		<h2>История о том, как портится код</h2>
 		<pre>
 			<code>
-				test
+			function CoffeeMaker() {
+              var grinder = new Grinder();
+              var pump = Pump.getInstance();
+              var heater = app.get('Heater');
+
+              this.brew = function() {
+                grinder.grind();
+                heater.on();
+                pump.pump();
+              };
+            }
 			</code>
 		</pre>
 	</section>
