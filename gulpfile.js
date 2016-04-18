@@ -99,4 +99,8 @@ gulp.task('clean', () => {
 	return del('prepared/**');
 });
 
+gulp.task('watch', () => {
+	gulp.watch(['index.html'], ['prepare']);
+});
+
 gulp.task('default', ['prepare']);
