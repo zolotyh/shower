@@ -48,6 +48,15 @@ gulp.task('prepare', () => {
 			path.dirname = 'shower/themes/material/' + path.dirname;
 		}))
 
+	const prismjs  = gulp.src([
+			'**', '!package.json'
+		], {
+			cwd: 'node_modules/prismjs'
+		})
+		.pipe(rename( (path) => {
+			path.dirname = 'node_modules/prismjs/' + path.dirname;
+		}));
+
 	const wrike = gulp.src([
 			'**', '!package.json'
 		], {
@@ -63,7 +72,7 @@ gulp.task('prepare', () => {
 			'$1../../$3', { skipBinary: true }
 		));
 
-	return merge(shower, core, themes)
+	return merge(shower, core, themes, prismjs)
 		.pipe(gulp.dest('prepared'));
 
 });
