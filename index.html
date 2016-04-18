@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="node_modules/shower-wrike/styles/screen-16x10.css">
 	<link rel="stylesheet" href="node_modules/prismjs/themes/prism-okaidia.css" media="all">
+	<link rel="shortcut icon" href="pictures/favicon.ico">
 </head>
 <body class="shower list">
 	<style>
@@ -16,7 +17,8 @@
 	</style>
 	<header class="caption">
 		<h1>
-			Чему можно научиться у Dart: переносим подходы из Dart и Angular2 в SPA на JavaScript
+			Чему можно научиться у Dart: <br>
+			переносим подходы из Dart и Angular2 в SPA на JavaScript
 		</h1>
 		<p>Алексей Золотых</p>
 	</header>
@@ -52,10 +54,10 @@
 	<section class="slide">
 		<h2>О нас</h2>
 		<ol>
-			<li>Факт 1</li>
-			<li class="next">Факт 2</li>
-			<li class="next">Факт 3</li>
-			<li class="next">Факт 4</li>
+			<li>Работаем с 2007 года</li>
+			<li class="next">нас 8,000 организаций</li>
+			<li class="next">2 000 000 строк кода</li>
+			<li class="next">20 фронтенд разработчиков</li>
 		</ol>
 	</section>
 	<section class="slide" id="s1">
@@ -560,11 +562,50 @@ export class HeroService {
 		<img src="pictures/15.gif" alt="">
 	</section>
 	<section class="slide">
+		<h2>Что нужно переопределтить?</h2>
+		<ul>
+			<li>setInterval</li>
+			<li>requestAnimationFrame</li>
+			<li>alert</li>
+			<li>addEventListener</li>
+			<li>setTimeout</li>
+		</ul>
+	</section>
+	<section class="slide">
 		<h2>&mdash; Да, но это же манки патчинг</h2>
 		<h2 class="next">&mdash; Именно, посмотрите, как это круто!</h2>
 	</section>
+	<section class="slide" id="zone">
+		<h2>Пример конфигурации зоны</h2>
+		<pre><code class="language-javascript">{
+    name: 'Название',
+    properties: {
+        [key: string]: any, // свойства конкретной зоны
+    };
+	onFork: function(){}, // когда создается дочерняя зона
+	onIntercept: function(){}, // перехватываем обертку обратного вызова
+	onInvoke: function(){}, // перехват вызова
+	onHandleError: function(){},// перехват ошибок
+	onInvokeTask: function(){}, // перехват выполнения задачи
+	onCancelTask: function(){}, // отмена задачи
+	onHasTask: function(){} // при изменении очереди задач
+}
+		</code></pre>
+		<style>
+			#zone code {
+				font-size: 12px;
+			}
+		</style>
+	</section>
+	<section class="slide">
+		<h2>3 типа задач</h2>
+		<ul>
+			<li>MicroTask <span class="next">&mdash; выполняется как можно скорее, сразу после выполнения callStack</span></li>
+			<li>MacroTask<span class="next">&mdash; setTimeout, setImmediate, setInterval, requestAnimationFrame</span></li>
+			<li>EventTask<span class="next">&mdash; события, могу выполнится, а могут и не выполнится</span></li>
+		</ul>
+	</section>
 	<section class="slide" id="a5">
-		<!--<h2>Пример</h2>-->
 		<pre><code class="language-javascript">var currentZone = Zone.current
 .fork(Zone['longStackTraceZoneSpec'])
 .fork({
@@ -603,7 +644,7 @@ noop();</code></pre>
 		<a href="http://embed.plnkr.co/N7t1Qk/">Пример</a>
 	</section>
 	<section class="slide">
-		<h2>Спасибо за внимание!</h2>
+		<h2 class="shout">Спасибо за внимание!</h2>
 	</section>
 	<!--
 		To hide progress bar from entire presentation
