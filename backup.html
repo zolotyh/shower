@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,38 +9,11 @@
 	<link rel="stylesheet" href="node_modules/prismjs/themes/prism-okaidia.css" media="all">
 	<link rel="stylesheet" href="node_modules/prismjs/plugins/line-highlight/prism-line-highlight.css" media="all">
 	<link rel="shortcut icon" href="pictures/favicon.ico">
-	<link rel="stylesheet" href="node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css" media="all">
 </head>
 <body class="shower list">
 	<style>
-		.line-highlight{
-			background: rgba(255,0,0,0.3);
-		}
-		pre.line-numbers {
-			padding-left: 1.8em;
-		}
-		.slide code {
-			font-size: 15px;
-			line-height: 1.5;
-		}
-		.slide pre code {
-			padding: 0;
-			margin: 0;
-			width: 100%;
-		}
-		.slide .active-item {
-			color: #8CC53F;
-		}
-		.slide.img h2 {
-			color: #fff;
-		}
-		img.v {
-			height: 100%;
-			max-width: none;
-		}
-		img.h {
-			width: 100%;
-			max-height: none;
+		.slide::before {
+			counter-increment: none;
 		}
 	</style>
 	<header class="caption">
@@ -81,178 +53,19 @@
 		</style>
 	</section>
 	<section class="slide">
-		<h2>О Wrike</h2>
-		<ul>
-			<li>Мы работаем с 2007 года</li>
-			<li class="next">11 000 корпоративных клиентов, в числе которых Pal, HTC, Citrix, Hootsuite, Pure Storage, Nike, Ecco, Amazon</li>
-			<li class="next">В нашем git более 2 000 000 строк фронтенд кода</li>
-			<li class="next">В нашей команде фронтенда 30 человек</li>
-			<li class="next">Мы используем связку Dart вместе с Angular2 в продакшн</li>
-		</ul>
-	</section>
-	<section class="slide">
-		<h2>О докладе</h2>
-		<ul>
-			<li class="next">Доклад состоит из 2х историй</li>
-			<li class="next">Обе истории основаны на реальных примерах</li>
-			<li class="next">Опыт, которым я хочу поделиться, можно применить у себя</li>
-		</ul>
-	</section>
-	<section class="slide">
-		<h2 class="active-item">История 1</h2>
-		<h2>История 2</h2>
-	</section>
-		<section class="slide img" id="n1">
-		<h2 class="shout shrink">Zone.js</h2>
-		<img class="cover v" src="pictures/_1.jpg" alt="">
-		<style></style>
-	</section>
-	<section class="slide">
-		<h2>При помощи зон вы можете:</h2>
-		<ul>
-			<li>Отследить все асинхронные вызовы в пределах зоны</li>
-			<li>Перехватить все ошибки в пределах зоны, даже в асинхронных функциях</li>
-			<li>Получить ссылку на зону из абсолютно любого места в коде</li>
-			<li>Хранить данные в пределах зоны</li>
-		</ul>
-	</section>
-	<section class="slide">
-		<h2 class="shout">Начинаем разбираться</h2>
-	</section>
-	<section class="slide">
-		<h2>Что будет в консоли?</h2>
-		<pre><code class="language-javascript">var main = {
-  method: function(){
-    console.log(this);
-    setTimeout(function(){
-      console.log(this);
-    },0);
-  }
-};
-
-main.method();
-		</code></pre>
-	</section>
-	<section class="slide">
-		<h2>Думаю что все ответили правильно</h2>
+		<h2>О нас</h2>
 		<ol>
-			<li>Объект main</li>
-			<li>Объект window</li>
+			<li>Работаем с 2007 года</li>
+			<li class="next">10 000+ корпоративных клиентов, в числе которых Pal, HTC, Citrix, Hootsuite, Pure Storage, Nike, Ecco, Amazon</li>
+			<li class="next">2 000 000 строк кода</li>
+			<li class="next">20 фронтенд разработчиков</li>
 		</ol>
 	</section>
-	<section class="slide">
-		<h2>Почему так происходит?</h2>
-		<h2 class="next">&mdash; теряется контекст</h2>
-	</section>
-	<section class="slide">
-		<h2>Как можно исправить?</h2>
-		<ul class="next">
-			<li>Передать контекст через замыкание</li>
-			<li>Задать контекст через bind (apply, call)</li>
-		</ul>
-	</section>
-	<section class="slide" id="n2">
-		<h2>Схема работы</h2>
-		<img src="pictures/js.svg" alt="">
-		<style>
-			#n2 img {
-				width: 80%;
-				margin-top: -40px;
-			}
-		</style>
-	</section>
-	<section class="slide">
-		<h2>А что если мы хотим контролировать контекст выполнения чужого кода?</h2>
-	</section>
-	<section class="slide" id="jquery">
-		<img width="80%" src="pictures/code.svg" alt="">
-		<style>
-			#jquery img{
-				display: block;
-				margin: 0 auto;
-			}
-		</style>
-	</section>
-	<section class="slide">
-		<h2>А что будет, если перехватывать все обращения в Web Api и передавать контекст через замыкания?</h2>
-		<img src="pictures/15.gif" alt="">
-	</section>
-	<section class="slide">
-		<h2>&mdash; Да, но это же манки патчинг</h2>
-		<h2 class="next">&mdash; Именно, посмотрите, как это круто!</h2>
-	</section>
-	<section class="slide">
-		<h2>Пример</h2>
-		<pre data-start="1"><code class="language-javascript">var main = function(){
-  console.log(Zone.current.name); // 'my-context'
-  setTimeout(function(){
-   console.log(Zone.current.name); // 'my-context'
-  },0);
-};
-
-Zone.current.fork({
-  name: 'my-context'
-}).run(main);
-		</code></pre>
-	</section>
-	<section class="slide" id="andwhat">
-		<img src="pictures/_2.jpg" alt="">
-		<style>
-			#andwhat img{
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-			}
-		</style>
-	</section>
-	<section class="slide">
-		<h2>А что будет, если вместо setTimeout поставить вызов или цепочку вызовов стороннего кода?</h2>
-		<h2 class="next">Или большой объем своего кода?</h2>
-	</section>
-	<section class="slide">
-		<pre data-start="1"><code class="language-javascript">var main = function(){
-  thirdPartyCode(function(){
-    throw 'error';
-  },0);
-};
-
-Zone.current.fork({
-  name: 'my-context',
-  onHandleError: function(){
-    console.log('error');
-    return false;
-  }
-}).run(main);</code></pre>
-	</section>
-	<section class="slide">
-		<h2>Какие задачи еще можно решить?</h2>
-		<ul>
-			<li class="next">Трекинг</li>
-			<li class="next">Обработка ошибок</li>
-			<li class="next">Профилирование</li>
-			<li class="next">Замена $digest цикла ;)</li>
-		</ul>
-	</section>
-	<section class="slide">
-		<img src="pictures/__4.gif" alt="">
-	</section>
-	<section class="slide">
-		<h2>Есть javascript и typescript версия</h2>
-		<p>
-			<a href="https://github.com/angular/zone.js/">здесь</a>
-		</p>
-		<ul>
-			<li class="next">В Dart зоны есть по-умолчанию</li>
-			<li class="next">В angular2 зонами разруливаются проблемы с $digest</li>
-		</ul>
-	</section>
-	<section class="slide">
-		<h2>История 1</h2>
-		<h2 class="active-item">История 2</h2>
-	</section>
 	<section class="slide" id="s1">
-		<h2>Уроки велосипедостроения</h2>
+		<h2>История 1
+			<br />
+			&laquo;Уроки велосипедостроения&raquo;
+		</h2>
 		<img src="pictures/1.jpg" alt="" class="cover">
 		<style>
 			#s1 h2 {
@@ -319,18 +132,27 @@ TodoView = Backbone.View.extend({
 		<h2>
 			Потом напишем еще немного кода...
 		</h2>
-		<pre class="next line-numbers" data-start="1"><code class="language-javascript">	isRepeat: true,
+		<pre class="next"><code class="language-javascript">	isRepeat: true,
 	clickHandler: function(){
 		//...
 		if(this.isRepeat){
 			this.showRepeatModal();
 		}
 		// ... код для других флагов
+	},
+	render: function(){
+		//...
+		if(this.isRepeat){
+			this.showRepeatWidget();
+		} else {
+			this.showCustomSubwidget();
+		}
+		//...
 	}
 </code></pre>
 	<style>
 			#s11 code {
-				font-size: 13px;
+				font-size: 11px;
 			}
 	</style>
 	</section>
@@ -376,9 +198,8 @@ TodoView = Backbone.View.extend({
 	<section class="slide" id="s12">
 		<img class="cover next" src="pictures/8.jpg" alt="">
 		<h2>Такой код характерен для многих фреймоворков.</h2>
-		<h2 class="next">Совпадение?</h2>
 		<style>
-			#s12 .next.active ~ h2 {
+			#s12 .next.active + h2 {
 				color: #fff;
 			}
 			#s12 p {
@@ -418,7 +239,7 @@ TodoRepeatView = Backbone.View.extend(TodoView,{
 </style>
 	</section>
 	<section class="slide" id="s15">
-		<h2>А потом мы узнаём про миксины...</h2>
+		<h2>А потом мы узнаем про миксины...</h2>
 		<pre><code class="language-javascript">MySuperView = Backbone.View.extend(
 	TodoRepeatView,
 	MyFeature1View,
@@ -435,29 +256,52 @@ TodoRepeatView = Backbone.View.extend(TodoView,{
 </style>
 	</section>
 	<section class="slide" id="s16">
-		<h2>Пример родительского миксина</h2>
-		<pre data-line="3"><code class="language-javascript">MyFeature1View = Backbone.View.extend({
+		<h2>А потом мы узнаем про миксины...</h2>
+		<pre><code class="language-javascript">MyFeature1View = Backbone.View.extend({
 	myFeature1method: function(arg){
 		console.log(arg.foo);
     }
 });
+
+MySuperView = Backbone.View.extend({
+	//...
+	MyFeature1View,{
+	render: function(){
+	//...
+		var arg = {foo: bar} // error
+		this.myFeature1method(arg);
+	//...
+	}
+});
 </code></pre>
 <style>
 		#s16 code {
-			font-size: 16px;
+			font-size: 11px;
 		}
 </style>
 	</section>
 	<section class="slide" id="s17">
-		<h2>А что случится, если нужно поменять родительское api</h2>
-		<pre data-line="3"><code class="language-javascript">MyFeature1View = Backbone.View.extend({
+		<h2>А потом мы узнаем про миксины...</h2>
+		<pre><code class="language-javascript">MyFeature1View = Backbone.View.extend({
 	myFeature1method: function(arg){
 		arg.newFoo.call(this);
     }
-});</code></pre>
+});
+
+MySuperView = Backbone.View.extend({
+	//...
+	MyFeature1View,{
+	render: function(){
+	//...
+		var arg = {foo: bar} // error
+		this.myFeature1method(arg);
+	//...
+	}
+});
+</code></pre>
 <style>
 		#s17 code {
-			font-size: 17px;
+			font-size: 11px;
 		}
 </style>
 	</section>
@@ -485,27 +329,10 @@ TodoRepeatView = Backbone.View.extend(TodoView,{
 		}
 	</style>
 	</section>
-	<section class="slide">
-		<h2>А что будет, если способ инициализации зависимости поменяется?</h2>
-	</section>
-	<section class="slide" id="s19_">
-		<pre data-line="2"><code class="language-javascript">MySuperView = Backbone.View.extend({
-	repeater: new RepeatBehavior(),
-	render: function(){
-	//...
-		repeater.myFeature1method(arg);
-	//...
-	}
-});
-</code></pre>
-	<style>
-		#s19_ code {
-			font-size: 17px;
-		}
-	</style>
-	</section>
 	<section class="slide" id="s19">
-		<pre data-line="2"><code class="language-javascript">MySuperView = Backbone.View.extend({
+		<h2>А что будет, если способ инициализации зависимости поменяется?</h2>
+		<pre><code class="language-javascript">MySuperView = Backbone.View.extend({
+	// repeater: new RepeatBehavior(),
 	repeater: new RepeatBehavior(newParams),
 	render: function(){
 	//...
@@ -516,7 +343,7 @@ TodoRepeatView = Backbone.View.extend(TodoView,{
 </code></pre>
 	<style>
 		#s19 code {
-			font-size: 17px;
+			font-size: 14px;
 		}
 	</style>
 	</section>
@@ -634,7 +461,11 @@ function SomeClass(locator) {
 				<a href="https://github.com/angular/di.js">https://github.com/angular/di.js</a>
 			</small>
 		</h2>
-		<pre><code class="language-javascript">@Inject(Grinder, Pump, Heater)
+		<pre><code class="language-javascript">import {Grinder} from './grinder';
+import {Pump} from './pump';
+import {Heater} from './heater';
+
+@Inject(Grinder, Pump, Heater)
 export class CoffeeMaker {
 	constructor(grinder, pump, heater) {
 	// ...
@@ -645,100 +476,176 @@ export class CoffeeMaker {
 }</code></pre>
 		<style>
 			#s26 code {
-				font-size: 17px;
+				font-size: 11px;
 			}
 			#s26 small {
 				font-size: 0.6em;
 			}
 		</style>
 	</section>
-	<section class="slide" id="s26_">
-		<pre data-line="1"><code class="language-javascript">@Inject(Grinder, Pump, Heater)
-export class CoffeeMaker {
-	constructor(grinder, pump, heater) {
-	// ...
-	}
-	brew() {
-		console.log('Brewing a coffee...');
-	}
-}</code></pre>
-		<style>
-			#s26_ code {
-				font-size: 17px;
-			}
-		</style>
-	</section>
-	<section class="slide" id="s26__">
-		<pre data-line="3"><code class="language-javascript">@Inject(Grinder, Pump, Heater)
-export class CoffeeMaker {
-	constructor(grinder, pump, heater) {
-	// ...
-	}
-	brew() {
-		console.log('Brewing a coffee...');
-	}
-}</code></pre>
-		<style>
-			#s26_ code {
-				font-size: 17px;
-			}
-		</style>
-	</section>
 	<section class="slide" id="s27">
-		<pre><code class="language-javascript">
+		<h2>Работа против интерфейса</h2>
+		<pre><code class="language-javascript">import {Injectable} from 'angular2/core';
+import {Hero}       from './hero';
+import {HEROES}     from './mock-heroes';
+import {Logger}     from '../logger.service';
+
+//[provide(Logger, {useClass: Logger})]
+//[provide(Logger, {useClass: SilentLoger})]
+
 @Injectable()
-@Inject(Logger)
 export class HeroService {
 	constructor(private _logger: Logger) {  }
 	getHeroes() {
 		this._logger.log('Getting heroes ...')
 		return HEROES;
 	}
-}</code></pre>
+}
+		</code></pre>
 		<style>
 			#s27 code {
-				font-size: 17px;
+				font-size: 11px;
 			}
 			#s27 small {
 				font-size: 0.6em;
 			}
 		</style>
 	</section>
-	<section class="slide" id="s27_">
-		<pre><code class="language-javascript">var injectorClass = Injector.resolveAndCreate([
-	HeroService,
-	new Provider(Logger, { useClass: ServerLogger })
-]);
-expect(injectorClass.get(Logger) instanceof ServerLogger).toBe(true);
-
-		</code></pre>
-		<style>
-			#s27_ code {
-				font-size: 17px;
-			}
-			#s27_ small {
-				font-size: 0.6em;
-			}
-		</style>
-	</section>
 	<section class="slide">
-		<h2>
-			Если вы используете Angular2, у вас уже есть правильный DI.
-		</h2>
-		<p>
-			Также можно подключить DI отдельно, есть версия для JS, Dart и для Typescript.
-		</p>
 		<h2>Standalone DI (Typescript)</h2>
 		<p>
 			<a href="http://inversify.io/">inversify.io</a>
 		</p>
 	</section>
+	<section class="slide" id="a1">
+		<h2>История 2
+			<br>
+			&laquo;<small>зона</small>&raquo;
+		</h2>
+		<img src="pictures/12.jpeg" alt="" class="cover">
+		<style>
+			#a1 img {
+				width: 100%;
+				max-width: none;
+			}
+			#a1 h2 {
+				color: #fff;
+			}
+		</style>
+	</section>
+	<section id="a2" class="slide">
+		<img src="pictures/13.jpg" alt="" class="cover next">
+		<h2>Это история не про зеков</h2>
+		<h2 class="next">Это история про обезьян</h2>
 
-	<section class="slide">
-		<h2 class="shout shrink">Спасибо за внимание!</h2>
+		<style>
+			#a2 .active ~ h2 {
+				color: #fff;
+			}
+		</style>
+	</section>
+	<section class="slide" id="a3">
+		<h2>Javascript event loop</h2>
+		<img src="pictures/14.png" alt="" width="500px">
+		<style>
+			#a3 h2 {
+				text-align: center;
+			}
+			#a3 img {
+				max-width: 100%;
+				display: block;
+					margin: 0 auto;
+			}
+		</style>
 	</section>
 	<section class="slide">
-		<h2 class="shout shrink">Вопросы?</h2>
+		<h2>А что, если добавить колбеки перед и после вызова каждого метода, который может добавить что-то в коллбек кью?</h2>
+		<img src="pictures/15.gif" alt="">
+	</section>
+	<section class="slide">
+		<h2>Что нужно переопределтить?</h2>
+		<ul>
+			<li>setInterval</li>
+			<li>requestAnimationFrame</li>
+			<li>alert</li>
+			<li>addEventListener</li>
+			<li>setTimeout</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>&mdash; Да, но это же манки патчинг</h2>
+		<h2 class="next">&mdash; Именно, посмотрите, как это круто!</h2>
+	</section>
+	<section class="slide" id="zone">
+		<h2>Пример конфигурации зоны</h2>
+		<pre><code class="language-javascript">{
+    name: 'Название',
+    properties: {
+        [key: string]: any, // свойства конкретной зоны
+    };
+	onFork: function(){}, // когда создается дочерняя зона
+	onIntercept: function(){}, // перехватываем обертку обратного вызова
+	onInvoke: function(){}, // перехват вызова
+	onHandleError: function(){},// перехват ошибок
+	onInvokeTask: function(){}, // перехват выполнения задачи
+	onCancelTask: function(){}, // отмена задачи
+	onHasTask: function(){} // при изменении очереди задач
+}
+		</code></pre>
+		<style>
+			#zone code {
+				font-size: 12px;
+			}
+		</style>
+	</section>
+	<section class="slide">
+		<h2>3 типа задач</h2>
+		<ul>
+			<li>MicroTask <span class="next">&mdash; выполняется как можно скорее, сразу после выполнения callStack</span></li>
+			<li>MacroTask<span class="next">&mdash; setTimeout, setImmediate, setInterval, requestAnimationFrame</span></li>
+			<li>EventTask<span class="next">&mdash; события, могу выполнится, а могут и не выполнится</span></li>
+		</ul>
+	</section>
+	<section class="slide" id="a5">
+		<pre><code class="language-javascript">var currentZone = Zone.current
+.fork(Zone['longStackTraceZoneSpec'])
+.fork({
+	onHandleError(parentZoneDelegate, currentZone, targetZone, error) {
+		parentZoneDelegate.handleError(targetZone, error);
+		console.error(error.stack);
+		return false;
+	}
+});
+
+button.addEventListener('click', function () {
+	currentZone.run(main);
+});
+
+function main() {
+	setTimeout(function () {
+		throw new Error('Hello');
+	}, 200);
+}
+
+function noop() {
+	setTimeout(noop, 10 * Math.random());
+}
+noop();</code></pre>
+		<style>
+#a5 pre {
+					margin-top: -3em;
+}
+			#a5 code {
+				font-size: 11px;
+			}
+		</style>
+	</section>
+	<section class="slide">
+		<h2>Пример профайлинга</h2>
+		<a href="http://embed.plnkr.co/N7t1Qk/">Пример</a>
+	</section>
+	<section class="slide">
+		<h2 class="shout">Спасибо за внимание!</h2>
 	</section>
 	<!--
 		To hide progress bar from entire presentation
@@ -748,7 +655,6 @@ expect(injectorClass.get(Logger) instanceof ServerLogger).toBe(true);
 	<script src="shower/shower.min.js"></script>
 	<script src="node_modules/prismjs/prism.js"></script>
 	<script src="node_modules/prismjs/plugins/line-highlight/prism-line-highlight.min.js"></script>
-	<script src="node_modules/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script>
 	<!-- Copyright © 2015 Yours Truly, Famous Inc. -->
 	<!-- Photos by John Carey, fiftyfootshadows.net -->
 
