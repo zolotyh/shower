@@ -250,6 +250,33 @@ Zone.current.fork({
 }).run(main);</code></pre>
 	</section>
 	<section class="slide">
+		<h2>Что можно перехватывать</h2>
+		<ul>
+			<li>onFork</li>
+			<li>onIntercept</li>
+			<li>onInvoke</li>
+			<li>onHandleError</li>
+			<li>onScheduleTask</li>
+			<li>onInvokeTask</li>
+			<li>onCancelTask</li>
+			<li>onHasTask</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>Типы асинхронных тасок</h2>
+		<ul>
+			<li>
+				MicroTask - выполняется немедленно.
+			</li>
+			<li>
+				MacroTask - тайминги (setTimeout)
+			</li>
+			<li>
+				EventTask - некоторые будующие события, могут произойти или не произойти.
+			</li>
+		</ul>
+	</section>
+	<section class="slide">
 		<h2>Какие задачи еще можно решить?</h2>
 		<ul>
 			<li class="next">Трекинг</li>
