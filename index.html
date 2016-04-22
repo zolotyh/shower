@@ -135,7 +135,7 @@ main.method();
 		</code></pre>
 	</section>
 	<section class="slide">
-		<h2>Думаю что все ответили правильно</h2>
+		<h2>Думаю, что все ответили правильно</h2>
 		<ol>
 			<li>Объект main</li>
 			<li>Объект window</li>
@@ -267,7 +267,7 @@ Zone.current.fork({
 			<a href="https://github.com/angular/zone.js/">здесь</a>
 		</p>
 		<ul>
-			<li class="next">В Dart зоны есть по-умолчанию</li>
+			<li class="next">В Dart зоны есть по умолчанию</li>
 			<li class="next">В angular2 зонами разруливаются проблемы с $digest</li>
 		</ul>
 	</section>
@@ -494,7 +494,7 @@ TodoRepeatView = Backbone.View.extend(TodoView,{
 		</ul>
 	</section>
 	<section class="slide" id="s18">
-		<h2>Возможно стоит использовать композицию?</h2>
+		<h2>Возможно, стоит использовать композицию?</h2>
 		<pre><code class="language-javascript">MySuperView = Backbone.View.extend({
 	repeater: new RepeatBehavior(),
 	render: function(){
@@ -549,7 +549,7 @@ TodoRepeatView = Backbone.View.extend(TodoView,{
 		<h2>Мы правда хотим менять во всех местаx где инициализировался класс?</h2>
 		<pre class="next"><code class="language-bash">grep -inIEr –color=ALWAYS –include="*.js"
 "View.*=" source/code/directory/</code></pre>
-		<p class="next">Конечно можно использовать ctrl/CMD + F, но сути это не меняет</p>
+		<p class="next">Конечно, можно использовать ctrl/CMD + F, но сути это не меняет</p>
 	</section>
 	<section class="slide" id="s21">
 		<h2>
@@ -628,7 +628,7 @@ function SomeClass(locator) {
 			AngularJS первой версии использует паттерн сервис локатор для внедрения зависимостей
 		</h2>
 		<p>
-			Основная проблема в том, что мы ничего не сможем сказать о типе внедренной зависимости,  плачем, колемся но используем grep.
+			Основная проблема в том, что мы ничего не сможем сказать о типе внедренной зависимости,  плачем, колемся, но используем grep.
 		</p>
 	</section>
 	<section class="slide" id="s25">
@@ -745,12 +745,22 @@ expect(injectorClass.get(Logger) instanceof ServerLogger).toBe(true);
 			Если вы используете Angular2, у вас уже есть правильный DI.
 		</h2>
 		<p>
-			Также можно подключить DI отдельно, есть версия для JS, Dart и для Typescript.
+			Также можно подключить DI <a href="https://github.com/angular/di.js/">отдельно</a>, есть версия для JS, Dart и для Typescript.
 		</p>
-		<h2>Standalone DI (Typescript)</h2>
-		<p>
-			<a href="http://inversify.io/">inversify.io</a>
-		</p>
+		<ul>
+			<li>
+				<a href="http://inversify.io/">inversify.io</a>
+			</li>
+			<li>
+				<a href="https://github.com/zerkalica/reactive-di">reactive-di</a>
+			</li>
+			<li>
+				<a href="https://github.com/zerkalica/immutable-di">immutable-di</a>
+			</li>
+			<li>
+				<a href="https://github.com/zerkalica/micro-di">micro-di</a>
+			</li>
+		</ul>
 	</section>
 
 	<section class="slide">
